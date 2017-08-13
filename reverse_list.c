@@ -24,6 +24,7 @@ int *invert_list(int *list, unsigned size) {
 	return list;
 }
 
+// usage: invert_list size
 int main(int argc, char **argv) {
 
 	unsigned size = atoll(argv[1]);
