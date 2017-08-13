@@ -13,6 +13,7 @@ void print_list(int *list, unsigned size) {
 	printf("]\n");
 }
 
+//invert a list on time "O(n/2)" and space O(1)
 int *invert_list(int *list, unsigned size) {
 	int aux = 0;
 	for (unsigned i = 0; i < size / 2; i++) {
