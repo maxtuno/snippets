@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *stoui128(unsigned __int128 n) {
+char *ui128tos(unsigned __int128 n) {
 	char *s = (char *)calloc(sizeof(char), 40);
 	do {
 		*--s = "0123456789"[n % 10];
@@ -15,7 +15,7 @@ char *stoui128(unsigned __int128 n) {
 	return s;
 }
 
-unsigned __int128 ui128tos(char *s) {
+unsigned __int128 stoui128(char *s) {
 	unsigned __int128 n = 0;
 	for (unsigned i = 0; i < strlen(s); i++) {
 		n *= 10;
@@ -26,6 +26,6 @@ unsigned __int128 ui128tos(char *s) {
 
 int main() {
 	char s[] = "340282366920938463463374607431768211455"; // (1 << 128) - 1
-	printf("%s\n", stoui128(ui128tos(s)));
+	printf("%s\n", ui128tos(stoui128(s)));
 	return EXIT_SUCCESS;
 }
